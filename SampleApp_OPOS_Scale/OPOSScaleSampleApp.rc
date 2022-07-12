@@ -1,0 +1,232 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\OPOSScaleSampleApp.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\OPOSScaleSampleApp.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MOTOROLAOPOSSCALESAMPLEAPP_DIALOG DIALOGEX 0, 0, 441, 353
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "OPOS Scale Sample Application"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Open",IDC_BUTTON_OPEN,23,43,50,14
+    PUSHBUTTON      "Claim",IDC_BUTTON_CLAIM,81,43,50,14
+    PUSHBUTTON      "Release",IDC_BUTTON_RELEASE,81,69,50,14
+    PUSHBUTTON      "Close",IDC_BUTTON_CLOSE,142,69,50,14
+    GROUPBOX        "Specific Methods",IDC_STATIC,15,102,240,38
+    GROUPBOX        "Common methods",IDC_STATIC,15,7,240,86
+    PUSHBUTTON      "Read weight",IDC_BUTTON_READ_WEIGHT,23,117,50,14
+    PUSHBUTTON      "Zero scale",IDC_BUTTON_ZERO_SCALE,191,117,50,14
+    EDITTEXT        IDC_EDIT_READ_WEIGHT,81,117,59,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "",IDC_SCALE1,"{CCB90172-B81E-11D2-AB74-0040054C3719}",WS_TABSTOP,207,302,27,25
+    PUSHBUTTON      "Device Enable",IDC_BUTTON_DEVICE_ENABLE,142,43,50,14
+    PUSHBUTTON      "Device Disable",IDC_BUTTON_DEVICE_DISABLE,23,69,50,14
+    COMBOBOX        IDC_COMBO_SCALE_PROPERTIES,25,217,128,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT1,25,236,128,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Set Property",IDC_BUTTON_UPDATE,178,235,65,14
+    LTEXT           "Result code",IDC_STATIC_RESULT_CODE,27,300,41,13
+    EDITTEXT        IDC_EDIT_RESULT_CODE,86,297,101,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_KG_POUNDS,157,117,21,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+    GROUPBOX        "Status and Result",IDC_STATIC,15,266,240,72
+    GROUPBOX        "Properties",IDC_STATIC,15,202,240,56
+    LTEXT           "Return Value",IDC_STATIC,27,281,42,12
+    LTEXT           "Status",IDC_STATIC,27,318,22,8
+    EDITTEXT        IDC_EDIT_SATUS,85,315,103,16,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_RET_VAL,86,280,101,14,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Data Events",IDC_STATIC,15,148,145,51
+    PUSHBUTTON      "Clear Input",IDC_BUTTON_CLEAR_INPUT,23,177,54,15
+    CONTROL         "Freeze Events",IDC_CHECK_FREEZ_EVENTS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,81,182,62,10
+    CONTROL         "DataEvent Enable",IDC_CHECK_DATAEVENT_ENABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,81,171,69,10
+    CONTROL         "Async Mode",IDC_CHECK_ASYNC_MODE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,162,55,10
+    GROUPBOX        "Direct IO",IDC_STATIC,261,7,173,332
+    LTEXT           "Command",IDC_STATIC,269,25,32,8
+    COMBOBOX        IDC_COMBO_DIO_OpCodes,312,23,113,30,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_InXml,272,48,155,68,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    PUSHBUTTON      "Execute",IDC_BUTTON_Execute,376,124,50,14
+    EDITTEXT        IDC_EDIT_OutXml,271,148,156,141,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+    PUSHBUTTON      "Clear",IDC_BUTTON_Clear,375,321,50,14
+    GROUPBOX        "Live Weight",IDC_STATIC,165,148,88,51
+    EDITTEXT        IDC_EDIT_LiveWeight,172,165,74,28,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Enable Live Weight",IDC_CHECK_StatusNotify,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,81,159,74,10
+    LTEXT           "CoreScanner status: ",IDC_STATIC,272,300,69,8
+    EDITTEXT        IDC_EDIT_CSStatus,352,298,40,14,ES_AUTOHSCROLL | ES_READONLY
+    COMBOBOX        IDC_COMBO_SO_NAMES,25,22,222,30,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "CH Internal",IDC_BUTTON_CheckHealth,200,44,49,11
+    PUSHBUTTON      "CH External",IDC_BUTTON_CHExternal,200,60,49,11
+    PUSHBUTTON      "CH Interactive",IDC_BUTTON_CHInteractive,200,76,49,11
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 5,6,15,0
+ PRODUCTVERSION 5,6,15,0
+ FILEFLAGSMASK 0x1fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Zebra Technologies"
+            VALUE "FileDescription", "Scale OPOS Sample Application"
+            VALUE "FileVersion", "5.6.15.0"
+            VALUE "InternalName", "OPOSScaleSampleApp.exe"
+            VALUE "LegalCopyright", "©2021 Zebra Technologies Corp. and/or its affiliates.  All rights reserved."
+            VALUE "OriginalFilename", "OPOSScaleSampleApp.exe"
+            VALUE "ProductName", "Zebra Scanner SDK"
+            VALUE "ProductVersion", "5.6.15.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_MOTOROLAOPOSSCALESAMPLEAPP_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 434
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 346
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_MOTOROLAOPOSSCALESAMPLEAPP_DIALOG DLGINIT
+BEGIN
+    IDC_SCALE1, 0x376, 16, 0
+0x0000, 0x0000, 0x0900, 0x0000, 0x043d, 0x0000, 0x043d, 0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_MOTOROLAOPOSSCALESAMPLEAPP_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\OPOSScaleSampleApp.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
