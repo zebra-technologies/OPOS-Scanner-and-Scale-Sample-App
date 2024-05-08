@@ -17,12 +17,11 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+//Maximum value for a variable of type long
+#define MAX_LONG_VALUE L"2147483647"
+
 /////////////////////////////////////////////////////////////////////////////
 // CAboutDlg dialog used for App About
-
-
-
-
 
 const LONG PIDX_NUMBER=0;
 const LONG PIDX_Claimed                 =   1 + PIDX_NUMBER;
@@ -166,6 +165,7 @@ public:
 	}
 
 };
+
 class CAboutDlg : public CDialog
 {
 public:
@@ -283,6 +283,7 @@ BEGIN_MESSAGE_MAP(CTestScanDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_Clear, &CTestScanDlg::OnBnClickedButtonClear)
 	ON_BN_CLICKED(IDC_BUTTON_CheckHealth, &CTestScanDlg::OnBnClickedButtonCheckhealth)
 	ON_BN_CLICKED(IDC_BUTTON_CH_Intercative, &CTestScanDlg::OnBnClickedButtonChIntercative)
+	ON_EN_CHANGE(IDC_UPDATE_EDIT, &CTestScanDlg::OnEnChangeUpdateEdit)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -477,6 +478,12 @@ void CTestScanDlg::OnOpenSO()
 		}
 			
 		m_iScanCount = 0;
+
+		if (m_nReturnValue == OPOS_SUCCESS)
+		{
+			GetDlgItem(IDC_CHECK_AutoEvtEnable)->EnableWindow(TRUE);
+		}
+
 		//update with return values
 		UpdateState();
 
@@ -499,15 +506,12 @@ void CTestScanDlg::OnButton1()
 		
 }
 
-
-
 void CTestScanDlg::OnButton2() 
 {
 	//diable the device
 	m_ctrlScanner.SetDeviceEnabled(FALSE);
 	UpdateState();
 }
-
 
 short CTestScanDlg::LoadPropertyList()
 {
@@ -648,7 +652,6 @@ void CTestScanDlg::OnButton3()
 	// TODO: Add your control notification handler code here
 }
 
-
 short CTestScanDlg::UpdateState()
 {    
 	m_strReturnValue=GetErrorString(m_nReturnValue);
@@ -660,6 +663,7 @@ short CTestScanDlg::UpdateState()
 	UpdateData(FALSE);
 	return OPOS_SUCCESS;
 }
+
 CString CTestScanDlg::GetErrorString( long lVal )
 {
 	CString sRet=_T("");
@@ -717,10 +721,6 @@ void CTestScanDlg::OnClaimButton()
 	//clall the claim method with appropriate value
 	m_nReturnValue=m_ctrlScanner.ClaimDevice(6000);
 	m_iScanCount = 0;
-	if(m_nReturnValue == OPOS_SUCCESS)
-	{
-		GetDlgItem(IDC_CHECK_AutoEvtEnable)->EnableWindow(TRUE);
-	}
 
 	//update the screen with return values
 	UpdateState();
@@ -731,11 +731,7 @@ void CTestScanDlg::OnReleaseButton()
 	//clall the rlease method
 	m_nReturnValue=m_ctrlScanner.ReleaseDevice();
 	m_iScanCount = 0;
-	if(m_nReturnValue == OPOS_SUCCESS)
-	{
-		GetDlgItem(IDC_CHECK_AutoEvtEnable)->EnableWindow(FALSE);
-		m_check_DataEventAutoenable.SetCheck(BST_UNCHECKED);
-	}
+	
 	//update the UI with return values
 	UpdateState();
 }
@@ -770,8 +766,6 @@ void CTestScanDlg::OnClearButton()
 	m_strScanDataLabel=_T("");
 	UpdateData(FALSE);
 }
-
-
 
 void CTestScanDlg::OnEventEnableButton() 
 {
@@ -895,10 +889,10 @@ CString CTestScanDlg::GetScanDataType(long p_nLabelType)
 		break;
 		///
 	case SCAN_SDT_RSS14:
-		return _T("SCAN_SDT_RSS14");    
+		return _T("SCAN_SDT_GS1DATABAR");    
 		break;
 	case SCAN_SDT_RSS_EXPANDED:
-		return _T("SCAN_SDT_RSS_EXPANDED");    
+		return _T("SCAN_SDT_GS1DATABAR_E");    
 		break;
 
 		///
@@ -1005,7 +999,7 @@ void CTestScanDlg::OnRetrievButton()
 
 void CTestScanDlg::OnUpdateStatisButton() 
 {
-	UpdateData(TRUE);
+	BOOL notErrorOccured = UpdateData(TRUE);
 	CString strTemp;
 
 	if (m_ctrlScanner.GetCapUpdateStatistics()==TRUE)
@@ -1018,8 +1012,17 @@ void CTestScanDlg::OnUpdateStatisButton()
 		return;
 	}
 
-	strTemp.Format(L"GoodScanCount=%d",m_nGoodScanCount );
-
+	if (notErrorOccured)
+	{
+		strTemp.Format(L"GoodScanCount=%d", m_nGoodScanCount);
+	}
+	
+	else 
+	{
+		//if error occured, send a Non-nemeric value to SO for identify that an error has occured
+		strTemp = "GoodScanCount=Error";
+	}
+	
 	m_nReturnValue=m_ctrlScanner.UpdateStatistics(strTemp);
 
 	//update the screen with return values
@@ -1114,23 +1117,21 @@ void CTestScanDlg::OnBnClickedButtonClear()
 
 void CTestScanDlg::OnCheckHealthButton() 
 {
-	m_nReturnValue=m_ctrlScanner.CheckHealth(OPOS_CH_INTERNAL);
+	m_nReturnValue = m_ctrlScanner.CheckHealth(OPOS_CH_INTERNAL);
 	UpdateState();
 }
 
 void CTestScanDlg::OnBnClickedButtonCheckhealth()
 {
-	m_ctrlScanner.CheckHealth(OPOS_CH_EXTERNAL);
+	m_nReturnValue = m_ctrlScanner.CheckHealth(OPOS_CH_EXTERNAL);
 	UpdateState();
 }
-
 
 void CTestScanDlg::OnBnClickedButtonChIntercative()
 {
-	m_ctrlScanner.CheckHealth(OPOS_CH_INTERACTIVE);
+	m_nReturnValue = m_ctrlScanner.CheckHealth(OPOS_CH_INTERACTIVE);
 	UpdateState();
 }
-
 
 void CTestScanDlg::StatusUpdateEventScanner1(long Data)
 {
@@ -1150,5 +1151,19 @@ void CTestScanDlg::StatusUpdateEventScanner1(long Data)
 		break;
 	default:
 		break;
+	}
+}
+
+void CTestScanDlg::OnEnChangeUpdateEdit()
+{
+	CEdit* pe1 = (CEdit*)GetDlgItem(IDC_UPDATE_EDIT);
+	CString str;
+
+	pe1->GetWindowText(str);
+
+	if (_wtoll(str) > _wtoll(MAX_LONG_VALUE)) {
+		
+		AfxMessageBox(L"Exceeded the maximum input limit");
+		SetDlgItemTextW(IDC_UPDATE_EDIT, (LPCTSTR)MAX_LONG_VALUE);
 	}
 }

@@ -290,6 +290,7 @@ public:
 	afx_msg void OnBnClickedButtonCheckhealth();
 	afx_msg void OnBnClickedButtonChIntercative();
 	void StatusUpdateEventScanner1(long Data);
+	afx_msg void OnEnChangeUpdateEdit();
 };
 
 

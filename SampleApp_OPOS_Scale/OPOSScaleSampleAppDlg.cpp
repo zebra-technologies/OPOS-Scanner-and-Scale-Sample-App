@@ -46,6 +46,7 @@ void CMotorolaOPOSScaleSampleAppDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_CHECK_StatusNotify, m_check_StatusNotify);
 	DDX_Control(pDX, IDC_EDIT_CSStatus, m_editCSstatus);
 	DDX_Control(pDX, IDC_COMBO_SO_NAMES, m_combo_SONames);
+	DDX_Control(pDX, IDC_EDIT_ERROR_MESSAGE, m_error_Message);
 }
 
 BEGIN_MESSAGE_MAP(CMotorolaOPOSScaleSampleAppDlg, CDialog)
@@ -370,10 +371,10 @@ void CMotorolaOPOSScaleSampleAppDlg::OnBnClickedButtonReadWeight()
 	
 	WCHAR wcWeght[10];
 	swprintf_s(wcWeght, 10, L"%4.3f",fweight_1);
-	m_editWeghtData.SetWindowText(wcWeght);
-	m_editWeghtData.UpdateData();
-	
-
+	if (!OposScale.get_AsyncMode()) {
+		m_editWeghtData.SetWindowText(wcWeght);
+		m_editWeghtData.UpdateData();
+	}
 	UpdateResultCode();
 }
 
@@ -563,42 +564,21 @@ void CMotorolaOPOSScaleSampleAppDlg::DataEventScale1(long Status)
 	fweight_1 = (float)(((float)Status) /1000);
 	
 	WCHAR wcWeght[10];
+	WCHAR wcErrorMessage[10];
 	swprintf_s(wcWeght, 10, L"%4.3f",fweight_1);
 	m_editWeghtData.SetWindowText(wcWeght);
 	m_editWeghtData.UpdateData();
+	swprintf_s(wcErrorMessage, 10, L"");
+	m_error_Message.SetWindowText(wcErrorMessage);
 	UpdateResultCode();
 }
 
 void CMotorolaOPOSScaleSampleAppDlg::ErrorEventScale1(long ResultCode, long ResultCodeExtended, long ErrorLocus, long* pErrorResponse)
 {
-	DWORD uType = 0;
-	WCHAR wcErrorMessage[300]; 
-	if(ResultCode == OPOS_EL_INPUT_DATA)
-	{
-		uType = MB_CANCELTRYCONTINUE;
-		swprintf_s(wcErrorMessage, 300, L"Error event recieved.\nResultCode: %d\nResultCodeExtended: %d\nErrorLocus: %d\nTo Clear the input select Cancel.\nTo retry select Try Again.\nTo continue select Continue.", ResultCode, ResultCodeExtended, ErrorLocus);
-	}
-	else
-	{
-		uType = MB_RETRYCANCEL;
-		swprintf_s(wcErrorMessage, 300, L"Error event recieved.\nResultCode: %d\nResultCodeExtended: %d\nErrorLocus: %d\nTo Clear the input select Cancel.\nTo retry select Try Again.", ResultCode, ResultCodeExtended, ErrorLocus);
-	}
-	int msgbxResult = MessageBox(wcErrorMessage, L"Error event", uType | MB_ICONERROR);
-	switch(msgbxResult)
-	{
-	case IDCANCEL:
-		*pErrorResponse = OPOS_ER_CLEAR;
-		break;
-	case IDCONTINUE:
-		*pErrorResponse = OPOS_ER_CONTINUEINPUT;
-		break;
-	case IDRETRY:
-		*pErrorResponse = OPOS_ER_RETRY;
-		break;
-	default:
-		*pErrorResponse = OPOS_ER_CLEAR;
-		break;
-	}
+	WCHAR wcErrorMessage[100];
+	swprintf_s(wcErrorMessage, 100, L"Error event recieved. ResultCode: %d ", ResultCode);
+	m_error_Message.SetWindowText(wcErrorMessage);
+
 	UpdateResultCode();
 }
 
@@ -707,7 +687,10 @@ void CMotorolaOPOSScaleSampleAppDlg::StatusUpdateEventScale1(long Data)
 	long lLiveWeightData = 0;
 	float fweight_1;
 	WCHAR wcWeght[10];
-	
+	WCHAR wcErrorMessage[10];
+	swprintf_s(wcErrorMessage, 10, L"");
+	m_error_Message.SetWindowText(wcErrorMessage);
+
 	switch(Data)
 	{
 	case SCAL_SUE_STABLE_WEIGHT:

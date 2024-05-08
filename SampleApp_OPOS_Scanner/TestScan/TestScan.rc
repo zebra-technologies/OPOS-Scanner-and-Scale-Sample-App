@@ -31,7 +31,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     ICON            IDI_ICON_OPOS_MSA,IDC_STATIC,10,8,20,20
     LTEXT           "Scanner OPOS Test - Version 1.1.0.6",IDC_STATIC,41,10,119,8,SS_NOPREFIX | SS_CENTERIMAGE
-    LTEXT           "©2021 Zebra Technologies Corp. and/or its affiliates.  All rights reserved.",IDC_STATIC,40,20,119,8
+    LTEXT           "©2024 Zebra Technologies Corp. and/or its affiliates.  All rights reserved.",IDC_STATIC,40,20,119,8
     DEFPUSHBUTTON   "OK",IDOK,178,7,32,14,WS_GROUP
 END
 
@@ -54,7 +54,7 @@ BEGIN
     PUSHBUTTON      "Release",IDC_RELEASE_BUTTON,95,30,51,14
     PUSHBUTTON      "Close",IDC_CL_BUTTON,175,30,51,14
     PUSHBUTTON      "CH Internal",IDC_CHECK_HEALTH_BUTTON,177,53,58,14
-    EDITTEXT        IDC_EDIT1,93,114,90,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT1,93,114,110,12,ES_AUTOHSCROLL
     PUSHBUTTON      "Get Properties",IDC_GET_BUTTON,160,263,64,14,NOT WS_VISIBLE
     GROUPBOX        "Result Values",IDC_STATIC,7,305,234,49
     EDITTEXT        IDC_RETURN_EDIT,98,316,97,12,ES_AUTOHSCROLL
@@ -70,7 +70,7 @@ BEGIN
     GROUPBOX        "Statistics And  clear Input Properties",IDC_STATIC,7,177,234,72
     PUSHBUTTON      "Retrieve",IDC_RETRIEV_BUTTON,24,194,75,14
     PUSHBUTTON      "Update Statistics",IDC_UPDATE_STATIS_BUTTON,24,211,75,14
-    EDITTEXT        IDC_UPDATE_EDIT,112,212,52,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UPDATE_EDIT,112,212,52,14,ES_AUTOHSCROLL | ES_NUMBER
     PUSHBUTTON      "Reset Statistics",IDC_RESET_STAT_BUTTON,175,210,60,15
     PUSHBUTTON      "Clear Input Properties",IDC_INPUT_BUTTON,24,229,75,15
     CONTROL         "",IDC_SCANNER1,"{CCB90182-B81E-11D2-AB74-0040054C3719}",WS_TABSTOP,205,316,23,27
@@ -109,8 +109,13 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 5,6,16,0
- PRODUCTVERSION 5,6,16,0
+<<<<<<< HEAD
+ FILEVERSION 5,6,36,0
+ PRODUCTVERSION 5,6,36,0
+=======
+ FILEVERSION 5,6,37,0
+ PRODUCTVERSION 5,6,37,0
+>>>>>>> wtut_scanner_sdk_windows_legacy_dev
  FILEFLAGSMASK 0x1fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -127,12 +132,20 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Zebra Technologies"
             VALUE "FileDescription", "Scanner OPOS Test Application"
-            VALUE "FileVersion", "5.6.16.0"
+<<<<<<< HEAD
+            VALUE "FileVersion", "5.6.36.0"
+=======
+            VALUE "FileVersion", "5.6.37.0"
+>>>>>>> wtut_scanner_sdk_windows_legacy_dev
             VALUE "InternalName", "TESTSCAN"
-            VALUE "LegalCopyright", "©2022 Zebra Technologies Corp. and/or its affiliates.  All rights reserved."
+            VALUE "LegalCopyright", "©2024 Zebra Technologies Corp. and/or its affiliates.  All rights reserved."
             VALUE "OriginalFilename", "ScannerOPOSTest.exe"
             VALUE "ProductName", "Scanner OPOS"
-            VALUE "ProductVersion", "5.6.16.0"
+<<<<<<< HEAD
+            VALUE "ProductVersion", "5.6.36.0"
+=======
+            VALUE "ProductVersion", "5.6.37.0"
+>>>>>>> wtut_scanner_sdk_windows_legacy_dev
         END
     END
     BLOCK "VarFileInfo"

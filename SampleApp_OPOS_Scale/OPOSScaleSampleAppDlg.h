@@ -131,4 +131,5 @@ public:
 	afx_msg void OnBnClickedButtonCheckhealth();
 	afx_msg void OnBnClickedButtonChexternal();
 	afx_msg void OnBnClickedButtonChinteractive();
+	CEdit m_error_Message;
 };
