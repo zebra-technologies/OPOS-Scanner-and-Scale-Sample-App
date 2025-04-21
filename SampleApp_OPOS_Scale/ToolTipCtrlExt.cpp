@@ -2,7 +2,7 @@
 //
 #include "stdafx.h"
 //#include "pch.h"
-#include "OPOSScaleSampleApp.h"
+#include "ScannerSDK_SampleApp_OPOS_Scale.h"
 #include "ToolTipCtrlExt.h"
 
 

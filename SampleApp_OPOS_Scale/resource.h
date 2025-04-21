@@ -1,8 +1,8 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by OPOSScaleSampleApp.rc
+// Used by ScannerSDK_SampleApp_OPOS_Scale.rc
 //
-#define IDD_MOTOROLAOPOSSCALESAMPLEAPP_DIALOG 102
+#define IDD_MOTOROLA_SCANNERSDK_SAMPLEAPP_OPOS_SCALE_DIALOG 102
 #define IDR_MAINFRAME                   128
 #define IDC_BUTTON_OPEN                 1000
 #define IDC_BUTTON_CLAIM                1001
@@ -56,6 +56,13 @@
 #define IDC_BUTTON_CHInteractive        1040
 #define IDC_EDIT5                       1041
 #define IDC_EDIT_ERROR_MESSAGE          1041
+#define IDC_STATISTICS_FILTER           1042
+#define IDC_Retrieve_Stats              1043
+#define IDC_Reset_Stats                 1044
+#define IDC_STATIC_Filter_Stat          1045
+#define IDC_EDIT_LOGVIEW                1046
+#define IDC_BUTTON3                     1047
+#define IDC_BUTTON_CLEAR_LOG            1047
 
 // Next default values for new objects
 // 
@@ -63,7 +70,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        132
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1042
+#define _APS_NEXT_CONTROL_VALUE         1048
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

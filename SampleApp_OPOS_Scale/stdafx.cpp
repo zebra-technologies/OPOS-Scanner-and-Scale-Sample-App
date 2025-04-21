@@ -1,5 +1,5 @@
 // stdafx.cpp : source file that includes just the standard includes
-// MotorolaOPOSScaleSampleApp.pch will be the pre-compiled header
+// ScannerSDK_SampleApp_OPOS_Scale.pch will be the pre-compiled header
 // stdafx.obj will contain the pre-compiled type information
 
 #include "stdafx.h"

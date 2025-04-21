@@ -15,7 +15,7 @@
 
 class CScale1 : public CWnd
 {
-protected:
+public:
 	DECLARE_DYNCREATE(CScale1)
 public:
 	CLSID const& GetClsid()
@@ -419,8 +419,10 @@ public:
 	long RetrieveStatistics(BSTR * pStatisticsBuffer)
 	{
 		long result;
-		static BYTE parms[] = VTS_PBSTR ;
-		InvokeHelper(0x2a, DISPATCH_METHOD, VT_I4, (void*)&result, parms, pStatisticsBuffer);
+		static BYTE parms[] =
+			VTS_PBSTR;
+		InvokeHelper(0x2a, DISPATCH_METHOD, VT_I4, (void*)&result, parms,
+			pStatisticsBuffer);
 		return result;
 	}
 	long UpdateStatistics(LPCTSTR StatisticsBuffer)

@@ -1,0 +1,339 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 217, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Scanner SDK Sample Application OPOS Scanner"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    ICON            IDI_ICON_OPOS_MSA,IDC_STATIC,10,8,20,20
+    LTEXT           "Scanner OPOS Test - Version 1.1.0.6",IDC_STATIC,41,10,119,8,SS_NOPREFIX | SS_CENTERIMAGE
+    LTEXT           "©2024 Zebra Technologies Corp. and/or its affiliates. All rights reserved.",IDC_STATIC,40,20,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,32,14,WS_GROUP
+END
+
+IDD_SCANNERSDK_SAMPLEAPP_OPOS_SCANNER_DIALOG DIALOGEX 0, 0, 773, 361
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "ScannerSDK_SampleApp_OPOS_Scanner"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Open",IDC_OPENSO,16,11,51,14
+    PUSHBUTTON      "Claim",IDC_CLAIM_BUTTON,95,11,51,14
+    PUSHBUTTON      "Device Enable",IDC_BUTTON1,175,11,51,14
+    PUSHBUTTON      "Decode Data",IDC_DECODE_BUTTON,92,147,68,14
+    PUSHBUTTON      "Data Events",IDC_EVENT_ENABLE_BUTTON,166,147,68,14
+    COMBOBOX        IDC_PROPERTIES_COMBO,12,264,133,238,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_PRO_EDIT,12,282,133,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Set Properties",IDC_SET_BUTTON,160,281,64,14
+    PUSHBUTTON      "Clear Input",IDC_LEAR_INPUT_BUTTON,18,147,68,14
+    PUSHBUTTON      "Device Disable",IDC_BUTTON2,16,30,51,14
+    PUSHBUTTON      "Release",IDC_RELEASE_BUTTON,95,30,51,14
+    PUSHBUTTON      "Close",IDC_CL_BUTTON,175,30,51,14
+    PUSHBUTTON      "CH Internal",IDC_CHECK_HEALTH_BUTTON,177,53,58,14
+    EDITTEXT        IDC_EDIT1,93,114,110,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Get Properties",IDC_GET_BUTTON,160,263,64,14,NOT WS_VISIBLE
+    GROUPBOX        "Result Values",IDC_STATIC,7,305,234,49
+    EDITTEXT        IDC_RETURN_EDIT,98,316,97,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RESULT_CODE_EDIT,98,334,97,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SCANDATALABE_EDIT,77,61,90,45,ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | WS_HSCROLL,WS_EX_LEFTSCROLLBAR
+    LTEXT           "Return Value",IDC_STATIC,26,316,61,11
+    LTEXT           "Result Code",IDC_STATIC,26,335,61,9
+    LTEXT           "Scan Data Type",IDC_STATIC,10,116,72,8
+    LTEXT           "Scan Data Label",IDC_STATIC,10,63,72,8
+    GROUPBOX        "Decoded Data",IDC_STATIC,7,47,233,84
+    GROUPBOX        "Properties And Methods",IDC_STATIC,7,251,234,49
+    GROUPBOX        "Data Event",IDC_STATIC,7,133,234,56
+    GROUPBOX        "Statistics And  clear Input Properties",IDC_STATIC,7,193,234,55
+    PUSHBUTTON      "Retrieve",IDC_RETRIEV_BUTTON,170,207,57,14
+    PUSHBUTTON      "Update Statistics",IDC_UPDATE_STATIS_BUTTON,227,206,16,14,NOT WS_VISIBLE
+    EDITTEXT        IDC_STATISTICS_FILTER,80,207,74,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Reset Statistics",IDC_RESET_STAT_BUTTON,170,226,57,15
+    PUSHBUTTON      "Clear Input Properties",IDC_INPUT_BUTTON,18,228,137,15
+    CONTROL         "",IDC_SCANNER1,"{CCB90182-B81E-11D2-AB74-0040054C3719}",WS_TABSTOP,205,316,23,27
+    PUSHBUTTON      "Close",IDC_CLOSE_BUTTON,186,113,45,14,NOT WS_VISIBLE
+    CONTROL         "Auto Enable",IDC_CHECK_AutoEvtEnable,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,168,171,65,8
+    LTEXT           "Scan Count",IDC_STATIC,97,169,65,8
+    EDITTEXT        IDC_EDIT_Scan_Count,19,167,67,12,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Direct IO",IDC_STATIC,246,7,185,347
+    EDITTEXT        IDC_EDIT_InXML,252,32,173,81,ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    COMBOBOX        IDC_COMBO_DIO_OpCodes,321,16,104,13,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Execute",IDC_BUTTON_Execute,375,119,50,14
+    EDITTEXT        IDC_EDIT_OutXML,251,142,174,159,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+    PUSHBUTTON      "Clear",IDC_BUTTON_Clear,371,333,53,14
+    LTEXT           "Command",IDC_STATIC,265,19,32,8
+    EDITTEXT        IDC_EDIT_CSstatus,341,311,40,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "CoreScanner status:",IDC_STATIC,260,313,67,8
+    PUSHBUTTON      "CH External",IDC_BUTTON_CheckHealth,177,70,58,14
+    PUSHBUTTON      "CH Interactive",IDC_BUTTON_CH_Intercative,177,87,58,14
+    LTEXT           "Filter by",IDC_STATIC,20,209,52,8
+    GROUPBOX        "Log View",IDC_STATIC,437,7,328,347
+    EDITTEXT        IDC_EDIT_LOGVIEW,442,20,319,311,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+    PUSHBUTTON      "Clear Log",IDC_BUTTON5,709,335,53,14
+END
+
+IDD_OPENSO DIALOGEX 0, 0, 187, 66
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Open Service Object"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,70,45,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,130,45,50,14
+    LTEXT           "Service Object Name:",IDC_STATIC,5,10,70,8
+    COMBOBOX        IDC_COMBO_SO_NAMES,7,24,173,30,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+<<<<<<< HEAD:src/OPOS/OPOS_Scanner/src/SampleApp/TestScan/TestScan.rc
+<<<<<<< HEAD
+ FILEVERSION 5,6,36,0
+ PRODUCTVERSION 5,6,36,0
+=======
+ FILEVERSION 5,6,37,0
+ PRODUCTVERSION 5,6,37,0
+>>>>>>> wtut_scanner_sdk_windows_legacy_dev
+=======
+ FILEVERSION 5,7,0,0
+ PRODUCTVERSION 5,7,0,0
+>>>>>>> wtut_scanner_sdk_windows_legacy_dev:src/OPOS/OPOS_Scanner/src/SampleApp/ScannerSDK_SampleApp_OPOS_Scanner/ScannerSDK_SampleApp_OPOS_Scanner.rc
+ FILEFLAGSMASK 0x1fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Zebra Technologies"
+<<<<<<< HEAD:src/OPOS/OPOS_Scanner/src/SampleApp/TestScan/TestScan.rc
+            VALUE "FileDescription", "Scanner OPOS Test Application"
+<<<<<<< HEAD
+            VALUE "FileVersion", "5.6.36.0"
+=======
+            VALUE "FileVersion", "5.6.37.0"
+>>>>>>> wtut_scanner_sdk_windows_legacy_dev
+            VALUE "InternalName", "TESTSCAN"
+            VALUE "LegalCopyright", "©2024 Zebra Technologies Corp. and/or its affiliates.  All rights reserved."
+            VALUE "OriginalFilename", "ScannerOPOSTest.exe"
+            VALUE "ProductName", "Scanner OPOS"
+<<<<<<< HEAD
+            VALUE "ProductVersion", "5.6.36.0"
+=======
+            VALUE "ProductVersion", "5.6.37.0"
+>>>>>>> wtut_scanner_sdk_windows_legacy_dev
+=======
+            VALUE "FileDescription", "ScannerSDK_SampleApp_OPOS_Scanner"
+            VALUE "FileVersion", "5.7.0.0"
+            VALUE "InternalName", "SCANNERSDK_SAMPLEAPP_OPOS_SCANNER"
+            VALUE "LegalCopyright", "©2024 Zebra Technologies Corp. and/or its affiliates. All rights reserved."
+            VALUE "OriginalFilename", "ScannerOPOSTest.exe"
+            VALUE "ProductName", "Scanner OPOS"
+            VALUE "ProductVersion", "5.7.0.0"
+>>>>>>> wtut_scanner_sdk_windows_legacy_dev:src/OPOS/OPOS_Scanner/src/SampleApp/ScannerSDK_SampleApp_OPOS_Scanner/ScannerSDK_SampleApp_OPOS_Scanner.rc
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_SCANNERSDK_SAMPLEAPP_OPOS_SCANNER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 765
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 354
+    END
+
+    IDD_OPENSO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON_OPOS_MSA       ICON                    "icon.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_SCANNERSDK_SAMPLEAPP_OPOS_SCANNER_DIALOG DLGINIT
+BEGIN
+    IDC_SCANNER1, 0x376, 16, 0
+0x0000, 0x0000, 0x0900, 0x0000, 0x039e, 0x0000, 0x048c, 0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_SCANNERSDK_SAMPLEAPP_OPOS_SCANNER_DIALOG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ABOUTBOX            "&About Scanner SDK Sample Application OPOS Scanner..."
+    IDS_ERROR               "Could not initialize the scanner device. Please check your Symbol Technologies Inc. OPOS Scanner driver installation"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Dutch (Netherlands) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NLD)
+LANGUAGE LANG_DUTCH, SUBLANG_DUTCH
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON_OPOS_MSA       ICON                    "ScannerSDK_SampleApp_OPOS_Scanner.ico"
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""ScannerSDK_SampleApp_OPOS_Scanner.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Dutch (Netherlands) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "ScannerSDK_SampleApp_OPOS_Scanner.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
